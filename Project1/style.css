@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-image: url(https://img.freepik.com/fotos-premium/casa-de-cena-de-montanha-ao-luar-ao-lado-de-um-lago-ai-generative_974186-1611.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(3.5px);
+}
+
+.box {
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 7px;
+    rotate: 45deg;
+    transition: 0.35s;
+}
+
+.box:hover {
+    height: 70px;
+    width: 70px;
+    margin: 8px;
+    rotate: 135deg;
+    border-radius: 35px;
+}
+
+.txt {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19pt;
+    color: rgb(22, 28, 82);
+    text-shadow: 10px, 10px, rgba(0, 0, 0,);
+    rotate: -45deg;
+    transition: 0.65s;
+}
+
+.box:hover > .txt {
+    rotate: -135deg;
+}
