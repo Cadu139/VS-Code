@@ -24,7 +24,7 @@ body {
     background-color: rgb(255, 255, 255, 0.5);
     border-radius: 7px;
     rotate: 45deg;
-    transition: 0.25s;
+    transition: 1s;
 }
 
 .box:hover {
