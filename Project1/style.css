@@ -12,7 +12,7 @@ body {
     backdrop-filter: blur(3.5px);
 }
 
-.box-r {
+.box {
     height: 60px;
     width: 60px;
     margin: 5px;
@@ -27,7 +27,7 @@ body {
     transition: 0.25s;
 }
 
-.box:hover > .box-r {
+.box:hover {
     height: 57px;
     width: 57px;
     margin: 20px;
