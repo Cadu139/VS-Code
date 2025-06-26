@@ -12,9 +12,10 @@ body {
     justify-content: center;
 }
 canvas {
-    background: rgba(0, 0, 0, 1);
+    background: transparent;
     border-radius: 5px;
-    display: block;
+    position: absolute;
+    top: 15vw;
     margin: 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     transition: 0.3s;

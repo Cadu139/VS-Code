@@ -1,6 +1,13 @@
 
-const layers = [document.getElementById('layer1'), document.getElementById('layer2')];
-const canvas = layers[0];
+const layers = [];
+const nlayers = 2; // Number of layers to be used
+
+for (let z = 0; z <= nlayers-1; z++){
+    layers.push(document.getElementById(`layer${z}`));
+    document.getElementById(`layer${z}`).style.zIndex = z;
+}
+
+const canvas = layers[1];
 
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
@@ -34,7 +41,7 @@ function drawGrade(step, count, interval) {
     }
 };
 
-canvas.addEventListener('mouseout', function() {drawGrade(1, totalRow * 2, 200)});
+canvas.addEventListener('click', function() {drawGrade(1, totalRow * 2, 200)});
 
 canvas.addEventListener('mousemove', function(mouse) {
     const xmouse = (mouse.pageX - canvas.offsetLeft) * (totalRow / canvas.width);
