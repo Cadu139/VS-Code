@@ -63,7 +63,7 @@
 
 //#region : Evento de chamada do grid
 
-    canvas(nlayers-1).addEventListener('click', () => {drawGrid(0, totalLine, "hetero", 1, 1, 1)});
+    canvas(nlayers-1).addEventListener('click', () => {drawGrid(0, totalLine, "padrão", "hetero", 1, 1, 1)});
 
 //#endregion
 
