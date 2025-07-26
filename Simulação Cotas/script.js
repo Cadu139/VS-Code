@@ -54,7 +54,7 @@
         else if (mode == "hetero") total = start + end*2; // Se o modo for heterogêneo, duplica a contagem de quadrados para a diagonal
         for (let x = start; x <= end; x++){
             for (let y = start; y <= end; y++){
-                drawSquare(0, x, y, `rgba(${r*x}, ${g*y}, ${b*Math.sqrt(x**2 + y**2)}, 1)`, 1, 1); // Define a cor padrão se não for fornecida
+                drawSquare(0, x, y, `rgba(${((Math.sqrt(2) * (end*(3/4)) - Math.sqrt(x**2 + y**2))/ (Math.sqrt(2) * (end*(3/4)))) * 255}, ${(y/end) * 255}, ${(x/end) * 255}, 1)`, 1, 1); // Define a cor padrão se não for fornecida
             }
         }
     };
@@ -63,7 +63,7 @@
 
 //#region : Evento de chamada do grid
 
-    canvas(nlayers-1).addEventListener('click', () => {drawGrid(0, totalLine, "hetero", 1, 1, 1)});
+    canvas(nlayers-1).addEventListener('click', () => {drawGrid(0, totalLine, "padrão", "hetero", 1, 1, 1)});
 
 //#endregion
 
@@ -77,7 +77,7 @@
         drawSquare(1, xmouse, ymouse, "yellow", 1, 1);
 
         
-        drawGrid(0, totalLine, "hetero", (xmouse/Math.sqrt(xmouse**2 + ymouse**2)) * 255, (ymouse/Math.sqrt(xmouse**2 + ymouse**2)) * 255, (Math.sqrt(xmouse**2 + ymouse**2) / Math.sqrt(2) * totalLine) * 255);
+        drawGrid(0, totalLine, `rgba(${(xmouse/Math.sqrt(xmouse**2 + ymouse**2)) * 255}, ${(ymouse/Math.sqrt(xmouse**2 + ymouse**2)) * 255}, ${(Math.sqrt(xmouse**2 + ymouse**2) / Math.sqrt(2) * totalLine) * 255}, 1)`, "hetero");
     });
 
 //#endregion
