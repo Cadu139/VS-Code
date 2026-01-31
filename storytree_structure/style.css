@@ -1,0 +1,101 @@
+/* Estilização Geral e Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Centralização da Tela */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Fundo neutro */
+}
+
+/* Container de Login */
+.login-container {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    color: #1c1e21;
+    font-size: 1.5rem;
+}
+
+/* Campos do Formulário */
+.form-group {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4b4f56;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #1877f2;
+    outline: none;
+}
+
+/* Botão de Enviar */
+button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #166fe5;
+}
+
+/* Link de Aviso (Rodapé) */
+footer {
+    margin-top: 1.5rem;
+    border-top: 1px solid #dddfe2;
+    padding-top: 1.5rem;
+}
+
+footer p {
+    color: #606770;
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: #1877f2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
