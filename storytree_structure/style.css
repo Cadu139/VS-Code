@@ -1,9 +1,37 @@
+/* Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+:root {
+    /* Cores Base - Preto */
+    --black-dark: #0a0a0a;
+    --black-light: #2d2d2d;
+    
+    /* Cores Base - Branco */
+    --white-light: #ffffff;
+    --white-dark: #f5f5f5c7;
+    
+    /* Cores Base - Amarelo Âmbar */
+    --amber: #d97706;
+    --amber-light: #fbbf24;
+    --amber-dark: #1a1410;
+    
+    /* Variáveis Aplicadas */
+    --primary: var(--amber);
+    --primary-light: var(--amber-light);
+    --background-color: var(--black-dark);
+    --text-primary: var(--white-light);
+    --text-secondary: var(--white-dark);
+    --border-color: var(--black-light);
+
+    font-size: 16px;
+}
+
 /* Estilização Geral e Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'M PLUS Rounded 1c';
 }
 
 /* Centralização da Tela */
@@ -12,24 +40,25 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f2f5; /* Fundo neutro */
+    background-color: var(--background-color);
 }
 
 /* Container de Login */
 .login-container {
-    background: #ffffff;
+    background: var(--amber-dark);
     padding: 2.5rem;
+    box-shadow: rgba(251, 191, 36, 0.15) 0px 60px 70px -20px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 400px;
     max-width: 400px;
+    margin: 3rem 0;
     text-align: center;
 }
 
 h1 {
-    margin-bottom: 2rem;
-    color: #1c1e21;
-    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: 1.7rem;
 }
 
 /* Campos do Formulário */
@@ -39,59 +68,67 @@ h1 {
 }
 
 label {
+    width: 100%;
     display: block;
     margin-bottom: 0.5rem;
-    color: #4b4f56;
-    font-weight: 600;
+    color: var(--text-secondary);
 }
 
 input {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #dddfe2;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.2s;
+    caret-color: var(--primary-light);
+    color: var(--white-light);
+    color-scheme: dark;
 }
 
 input:focus {
-    border-color: #1877f2;
     outline: none;
+    border-bottom: 0.125rem solid var(--primary-light);
+    box-shadow: 0 7px 10px rgba(255, 191, 36, 0.2);
 }
 
 /* Botão de Enviar */
 button {
     width: 100%;
     padding: 0.8rem;
-    background-color: #1877f2;
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 500;
     cursor: pointer;
     margin-top: 1rem;
-    transition: background-color 0.2s;
+    transition: 0.2s, 0.3s ease;
 }
 
 button:hover {
-    background-color: #166fe5;
+    background-color: var(--primary-light);
+    color: var(--black-dark);
+    box-shadow: 0 8px 17px rgba(255, 191, 36, 0.3);
+    transform: translateY(-3px);
 }
 
 /* Link de Aviso (Rodapé) */
 footer {
     margin-top: 1.5rem;
-    border-top: 1px solid #dddfe2;
+    border-top: 1px solid var(--border-color);
     padding-top: 1.5rem;
 }
 
 footer p {
-    color: #606770;
+    color: var(--text-secondary);
     font-size: 0.95rem;
 }
 
 footer a {
-    color: #1877f2;
+    color: var(--primary-light);
     text-decoration: none;
     font-weight: 500;
 }
