@@ -93,6 +93,25 @@ input:focus {
     box-shadow: 0 7px 10px rgba(255, 191, 36, 0.2);
 }
 
+.error-danger {
+    border: 2px solid red;
+    background-color: #ffcccc;
+    animation: shake 0.3s linear;
+}
+
+.error-warning {
+    border: 2px solid orange;
+    background-color: #fff3cd;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
 /* Botão de Enviar */
 button {
     width: 100%;

@@ -12,20 +12,22 @@
         <section id="login-card" class="login-container">
             <h1>Acesse sua conta</h1>
             
-            <form action="/login" method="POST">
+            <form action="/login" method="POST" novalidate>
                 <!-- Campo de E-mail -->
                 <div class="form-group">
                     <label for="email">E-mail</label>
+                    <span class="erro-span"></span>
                     <input type="email" id="email" name="email" required autocomplete="email">
                 </div>
 
                 <!-- Campo de Senha -->
                 <div class="form-group">
                     <label for="password">Senha</label>
+                    <span class="erro-span"></span>
                     <input type="password" id="password" name="password" required autocomplete="current-password">
                 </div>
 
-                <button type="submit">Entrar</button>
+                <button type="submit" id="login-button">Entrar</button>
             </form>
 
             <!-- Rodapé da seção de login com o link de cadastro -->
@@ -41,32 +43,36 @@
         <section id="signup-card" class="login-container" style="display: none;">
             <h1>Crie sua conta</h1>
             
-            <form action="/signup" method="POST">
+            <form action="/signup" method="POST" novalidate>
                 <!-- Campo de Nome -->
                 <div class="form-group">
                     <label for="name">Nome</label>
+                    <span class="erro-span"></span>
                     <input type="text" id="name" name="name" required>
                 </div>
 
                 <!-- Campo de E-mail -->
                 <div class="form-group">
                     <label for="signup-email">E-mail</label>
+                    <span class="erro-span"></span>
                     <input type="email" id="signup-email" name="email" required autocomplete="email">
                 </div>
 
                 <!-- Campo de Senha -->
                 <div class="form-group">
                     <label for="signup-password">Senha</label>
+                    <span class="erro-span"></span>
                     <input type="password" id="signup-password" name="password" required autocomplete="new-password">
                 </div>
 
                 <!-- Campo de Confirmar Senha -->
                 <div class="form-group">
                     <label for="confirm-password">Confirme a Senha</label>
+                    <span class="erro-span"></span>
                     <input type="password" id="confirm-password" name="confirm-password" required autocomplete="new-password">
                 </div>
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit" id="signup-button">Cadastrar</button>
             </form>
 
             <!-- Rodapé da seção de signup com o link de login -->
