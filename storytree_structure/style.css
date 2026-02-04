@@ -93,6 +93,10 @@ input:focus {
     box-shadow: 0 7px 10px rgba(255, 191, 36, 0.2);
 }
 
+span {
+    display: block;
+}
+
 .error-danger {
     border: 2px solid red;
     background-color: #ffcccc;
@@ -100,8 +104,11 @@ input:focus {
 }
 
 .error-warning {
-    border: 2px solid orange;
-    background-color: #fff3cd;
+    border-left: 2px solid orange;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+    color: #fbbf24;
+    font-size: 0.9rem;
 }
 
 @keyframes shake {
@@ -116,7 +123,6 @@ input:focus {
 button {
     width: 100%;
     padding: 0.8rem;
-    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 6px;
@@ -127,7 +133,15 @@ button {
     transition: 0.2s, 0.3s ease;
 }
 
-button:hover {
+button.safe {
+    background-color: var(--primary);
+}
+
+button.error {
+    background-color: grey;
+}
+
+button.safe:hover {
     background-color: var(--primary-light);
     color: var(--black-dark);
     box-shadow: 0 8px 17px rgba(255, 191, 36, 0.3);

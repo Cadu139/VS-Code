@@ -33,16 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonLogin.addEventListener('click', function(e) {
             e.preventDefault()
             const loginForm = document.querySelector('#login-card form')
-            if (loginForm && !loginForm.checkValidity()) {
+            if (loginForm) {
                 Array.from(loginForm.elements).forEach(element => {
                     if (element.tagName.toLowerCase() === 'input') {
-                        const errorSpan = element.previousElementSibling
-                        if (errorSpan && errorSpan.classList.contains('erro-span')) {
-                            if (!element.checkValidity()) {
-                                errorSpan.textContent = element.validationMessage
-                            } else {
-                                errorSpan.textContent = ''
-                            }
+                        const errorSpan = element.nextElementSibling
+                        if (!element.checkValidity()) {
+                            errorSpan.classList.add('error-warning')
+                            errorSpan.textContent = element.validationMessage
+                            buttonLogin.classList.add('error')
+                        } else {
+                            errorSpan.textContent = ''
+                            buttonLogin.classList.add('safe')
                         }
                     }
                 })
