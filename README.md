@@ -1,5 +1,2 @@
 # VS-Code
- Projeto 1:<a href=" https://cadu139.github.io/VS-Code/Project1"> =></a><br>
- Projeto 2:<a href=" https://cadu139.github.io/VS-Code/Project2"> =></a><br>
- Projeto 3:<a href=" https://cadu139.github.io/VS-Code/Project3"> =></a><br>
- Simulação Cotas V1:<a href=" https://cadu139.github.io/VS-Code/Simulação Cotas"> =></a>
+ Todos os projetos pequenos que eu já fiz estão aqui. Os códigos neste repositório trabalham apenas com HTML, CSS e Javascript. Para acessar os projetos mais complexos, confira os outros repositórios ;)
