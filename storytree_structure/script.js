@@ -29,25 +29,78 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const buttonLogin = document.querySelector('#login-button')
-    if (buttonLogin) {
+    const loginForm = document.querySelector('#login-card form')
+    if (buttonLogin && loginForm) {
+        let attemptedSubmit = false
+
+        const inputs = Array.from(loginForm.elements).filter(el => el.tagName.toLowerCase() === 'input')
+
+        function showError(input) {
+            const errorSpan = input.nextElementSibling
+            if (!errorSpan) return
+            errorSpan.classList.add('error-warning')
+            errorSpan.classList.add('shake')
+            errorSpan.textContent = input.validationMessage
+        }
+
+        function hideError(input) {
+            const errorSpan = input.nextElementSibling
+            if (!errorSpan) return
+            errorSpan.classList.remove('error-warning')
+            errorSpan.classList.remove('shake')
+            errorSpan.textContent = ''
+        }
+
+        function setButtonError() {
+            buttonLogin.classList.remove('safe')
+            buttonLogin.classList.add('error')
+        }
+
+        function setButtonSafe() {
+            buttonLogin.classList.remove('error')
+            buttonLogin.classList.add('safe')
+        }
+
+        function allInputsValid() {
+            return inputs.every(i => i.checkValidity())
+        }
+
+        // Attach realtime (input) listeners once to validate after first submit
+        inputs.forEach(input => {
+            if (input.dataset.hasRealtimeListener) return
+            input.addEventListener('input', function() {
+                if (!attemptedSubmit) return
+                if (!input.checkValidity()) {
+                    showError(input)
+                    setButtonError()
+                } else {
+                    hideError(input)
+                    if (allInputsValid()) setButtonSafe()
+                }
+            })
+            input.dataset.hasRealtimeListener = 'true'
+        })
+
         buttonLogin.addEventListener('click', function(e) {
             e.preventDefault()
-            const loginForm = document.querySelector('#login-card form')
-            if (loginForm) {
-                Array.from(loginForm.elements).forEach(element => {
-                    if (element.tagName.toLowerCase() === 'input') {
-                        const errorSpan = element.nextElementSibling
-                        if (!element.checkValidity()) {
-                            errorSpan.classList.add('error-warning')
-                            errorSpan.textContent = element.validationMessage
-                            buttonLogin.classList.add('error')
-                        } else {
-                            errorSpan.textContent = ''
-                            buttonLogin.classList.add('safe')
-                        }
-                    }
-                })
+            attemptedSubmit = true
+
+            // Trigger native validation (will set :invalid on fields)
+            if (loginForm.checkValidity()) {
+                // form is valid: submit
+                loginForm.submit()
+                return
             }
+
+            // form invalid: show errors for invalid inputs and mark button
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    showError(input)
+                } else {
+                    hideError(input)
+                }
+            })
+            setButtonError()
         })
     }
 })

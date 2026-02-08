@@ -100,7 +100,6 @@ span {
 .error-danger {
     border: 2px solid red;
     background-color: #ffcccc;
-    animation: shake 0.3s linear;
 }
 
 .error-warning {
@@ -109,6 +108,10 @@ span {
     margin-top: 0.5rem;
     color: #fbbf24;
     font-size: 0.9rem;
+}
+
+.shake {
+    animation: shake 0.3s;
 }
 
 @keyframes shake {
