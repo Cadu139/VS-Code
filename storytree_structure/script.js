@@ -2,10 +2,12 @@
 function toggleCard() {
     const loginCard = document.getElementById('login-card')
     const signupCard = document.getElementById('signup-card')
-    
+
     // Alterna a visibilidade dos cards
-    loginCard.style.display = loginCard.style.display === 'none' ? 'block' : 'none'
-    signupCard.style.display = signupCard.style.display === 'none' ? 'block' : 'none'
+    if (loginCard && signupCard) {
+        loginCard.style.animation = loginCard.style.animation === 'none' ? 'toggle-card 0.5s ease' : 'none'
+        signupCard.style.animation = signupCard.style.animation === 'none' ? 'toggle-card 0.5s ease' : 'none'
+    }
 }
 
 // Adiciona event listeners aos links de cadastro e login
