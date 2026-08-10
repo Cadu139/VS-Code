@@ -1,17 +1,28 @@
+
 // Função para alternar entre login e signup
 function toggleCard() {
     const loginCard = document.getElementById('login-card')
     const signupCard = document.getElementById('signup-card')
+    let faceCard = 1 // 1 para login, -1 para signup
 
     // Alterna a visibilidade dos cards
+    faceCard *= -1
     if (loginCard && signupCard) {
-        loginCard.style.animation = loginCard.style.animation === 'none' ? 'toggle-card 0.5s ease' : 'none'
-        signupCard.style.animation = signupCard.style.animation === 'none' ? 'toggle-card 0.5s ease' : 'none'
+        if (faceCard === 1) {
+            loginCard.classList.add('show')
+            signupCard.classList.remove('show')
+        }
+        else if (faceCard === -1) {
+            loginCard.classList.remove('show')
+            signupCard.classList.add('show')
+        }
+
     }
 }
 
 // Adiciona event listeners aos links de cadastro e login
 document.addEventListener('DOMContentLoaded', function() {
+
     // Link para cadastro
     const signupLink = document.getElementById('signup-link')
     if (signupLink) {

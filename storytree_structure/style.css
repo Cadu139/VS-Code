@@ -59,8 +59,11 @@ main {
     max-width: 400px;
     margin: 3rem 0;
     text-align: center;
-    backface-visibility: hidden;
-    animation: toggle-card 0.5s ease;
+}
+
+.show {
+    animation: toggle-card 0.5s ease forwards;
+    visibility: visible;
 }
 
 h1 {
