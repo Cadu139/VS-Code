@@ -1,15 +1,33 @@
+
+let isLoginCardVisible = false
+// Inicializa a variável com base na visibilidade inicial do cartão de login
+
+let submit = null
+let form_elements = null
+// Inicializa as variáveis com base na visibilidade inicial do cartão de login
+
 // Função para alternar entre login e signup
 function toggleCard() {
     const loginCard = document.getElementById('login-card')
     const signupCard = document.getElementById('signup-card')
-    
-    // Alterna a visibilidade dos cards
-    loginCard.style.display = loginCard.style.display === 'none' ? 'block' : 'none'
-    signupCard.style.display = signupCard.style.display === 'none' ? 'block' : 'none'
+
+    isLoginCardVisible = !isLoginCardVisible
+
+    submit = document.querySelector(isLoginCardVisible ? '#login-button' : '#signup-button')
+    form_elements = document.querySelector(isLoginCardVisible ? '#login-card form' : '#signup-card form')
+
+    loginCard.classList.toggle('hidden', !isLoginCardVisible)
+    signupCard.classList.toggle('hidden', isLoginCardVisible)
+
+    loginCard.style.display = ''
+    signupCard.style.display = ''
 }
 
 // Adiciona event listeners aos links de cadastro e login
 document.addEventListener('DOMContentLoaded', function() {
+
+    toggleCard() // Inicializa a visibilidade correta dos cartões
+
     // Link para cadastro
     const signupLink = document.getElementById('signup-link')
     if (signupLink) {
@@ -28,12 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 
-    const buttonLogin = document.querySelector('#login-button')
-    const loginForm = document.querySelector('#login-card form')
-    if (buttonLogin && loginForm) {
+    if (submit && form_elements) {
         let attemptedSubmit = false
 
-        const inputs = Array.from(loginForm.elements).filter(el => el.tagName.toLowerCase() === 'input')
+        const inputs = Array.from(form_elements.elements).filter(el => el.tagName.toLowerCase() === 'input')
 
         function showError(input) {
             const errorSpan = input.nextElementSibling
@@ -52,20 +68,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function setButtonError() {
-            buttonLogin.classList.remove('safe')
-            buttonLogin.classList.add('error')
+            submit.classList.remove('safe')
+            submit.classList.add('error')
         }
 
         function setButtonSafe() {
-            buttonLogin.classList.remove('error')
-            buttonLogin.classList.add('safe')
+            submit.classList.remove('error')
+            submit.classList.add('safe')
         }
 
         function allInputsValid() {
             return inputs.every(i => i.checkValidity())
         }
 
-        // Attach realtime (input) listeners once to validate after first submit
+        // Anexa os ouvintes em tempo real (input) uma única vez para validar após o primeiro envio
         inputs.forEach(input => {
             if (input.dataset.hasRealtimeListener) return
             input.addEventListener('input', function() {
@@ -81,18 +97,18 @@ document.addEventListener('DOMContentLoaded', function() {
             input.dataset.hasRealtimeListener = 'true'
         })
 
-        buttonLogin.addEventListener('click', function(e) {
+        submit.addEventListener('click', function(e) {
             e.preventDefault()
             attemptedSubmit = true
 
-            // Trigger native validation (will set :invalid on fields)
-            if (loginForm.checkValidity()) {
-                // form is valid: submit
-                loginForm.submit()
+            // Dispara a validação nativa (que definirá :invalid nos campos)
+            if (form_elements.checkValidity()) {
+                // O formulário é válido: enviar
+                form_elements.submit()
                 return
             }
 
-            // form invalid: show errors for invalid inputs and mark button
+            // O formulário é inválido: mostrar erros nos campos inválidos e marcar o botão
             inputs.forEach(input => {
                 if (!input.checkValidity()) {
                     showError(input)
