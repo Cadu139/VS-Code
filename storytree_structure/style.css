@@ -26,6 +26,31 @@
     font-size: 16px;
 }
 
+/* Torna a largura da barra bem fina ou sutil */
+::-webkit-scrollbar {
+    width: 20px;
+    height: 30px;
+}
+
+/* Deixa o fundo (trilha) transparente para fazer parte da tela/conteúdo */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Estiliza a parte que se move da barra com cor e borda arredondada */
+::-webkit-scrollbar-thumb {
+    background: var(--amber-dark);
+    border-radius: 10px;
+    border: 7px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Efeito ao passar o mouse por cima */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--amber-light);
+    background-clip: padding-box;
+}
+
 /* Estilização Geral e Reset */
 * {
     box-sizing: border-box;
@@ -57,10 +82,14 @@ main {
     border-radius: 12px;
     width: 400px;
     max-width: 400px;
-    margin: 3rem 0;
+    margin: 5rem 0;
     text-align: center;
     backface-visibility: hidden;
     animation: toggle-card 0.5s ease;
+}
+
+.hidden {
+    display: none !important;
 }
 
 h1 {
